@@ -1,8 +1,5 @@
 package org.example.dao.implementacion;
 
-<<<<<<< Updated upstream
-public class AutorDAOImpl {
-=======
 import org.example.dao.interfaz.AutorDAO;
 import org.example.model.Autor;
 import org.example.utils.ConexionBD;
@@ -66,5 +63,4 @@ public class AutorDAOImpl implements AutorDAO {
         }
     }
 
->>>>>>> Stashed changes
 }

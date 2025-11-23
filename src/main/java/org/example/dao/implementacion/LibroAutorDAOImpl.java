@@ -1,8 +1,5 @@
 package org.example.dao.implementacion;
 
-<<<<<<< Updated upstream:src/main/java/org/example/dao/implementacion/Libro_AutorDAOImpl.java
-public class Libro_AutorDAOImpl {
-=======
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +13,8 @@ public class LibroAutorDAOImpl implements LibroAutorDAO {
     public void insert(int idLibro, int idAutor) {
         ConexionBD conexionBD = new ConexionBD();
         String sql = "INSERT INTO Libro_Autor(idLibro, idAutor) VALUES(?, ?)";
-        try (Connection conn = conexionBD.getConexion();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection con = conexionBD.getConexion();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setInt(1, idLibro);
             stmt.setInt(2, idAutor);
@@ -32,8 +29,8 @@ public class LibroAutorDAOImpl implements LibroAutorDAO {
     public void delete(int idLibro, int idAutor) {
         ConexionBD conexionBD = new ConexionBD();
         String sql = "DELETE FROM Libro_Autor WHERE idLibro=? AND idAutor=?";
-        try (Connection conn = conexionBD.getConexion();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+        try (Connection con = conexionBD.getConexion();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
 
             stmt.setInt(1, idLibro);
             stmt.setInt(2, idAutor);
@@ -83,5 +80,4 @@ public class LibroAutorDAOImpl implements LibroAutorDAO {
         }
         return libros;
     }
->>>>>>> Stashed changes:src/main/java/org/example/dao/implementacion/LibroAutorDAOImpl.java
 }

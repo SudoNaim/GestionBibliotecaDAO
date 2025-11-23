@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface PrestamoDAO {
-
     ArrayList<Prestamo> obtenerPrestamos();
 
     void createPrestamo(Prestamo prestamo) throws SQLException;

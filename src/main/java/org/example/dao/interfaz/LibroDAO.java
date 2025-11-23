@@ -1,4 +1,5 @@
 package org.example.dao.interfaz;
+
 import org.example.model.Libro;
 
 import java.sql.SQLException;
@@ -14,5 +15,4 @@ public interface LibroDAO {
     void deleteLibro(int id) throws SQLException;
 
     Libro obtenerLibroPorId(int id) throws SQLException;
-
 }

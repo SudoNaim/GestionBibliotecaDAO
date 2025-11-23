@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface UsuarioDAO {
-
     ArrayList<Usuario> obtenerUsuarios();
 
     void createUsuario(Usuario usuario) throws SQLException;

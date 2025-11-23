@@ -32,16 +32,25 @@ public class LibroDAOImpl implements LibroDAO {
 
     public void createLibro(Libro libro) {
         ConexionBD conexionBD = new ConexionBD();
-        String sql = "INSERT INTO Libro (id, titulo, isbn) VALUES (?, ?, ?)";
-        try (Connection con = conexionBD.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, libro.getId());
-            ps.setString(2, libro.getTitulo());
-            ps.setString(3, libro.getIsbn());
+        String sql = "INSERT INTO Libro (titulo, isbn) VALUES (?, ?)";
+        try (Connection con = conexionBD.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            ps.setString(1, libro.getTitulo());
+            ps.setString(2, libro.getIsbn());
             ps.executeUpdate();
+
+            try (ResultSet rs = ps.getGeneratedKeys()) {
+                if (rs.next()) {
+                    libro.setId(rs.getInt(1));
+                }
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 
     public void updateLibro(Libro libro) {
         ConexionBD conexionBD = new ConexionBD();
